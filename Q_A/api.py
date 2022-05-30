@@ -66,6 +66,7 @@ def results_api(request):
         print('the result = ', result)
         char_list.append(int(result[0]))
         print(char_list)
+        print("Length of char list:",len(char_list))
     #################################################################
         c1=c2=c3=c4=c5=c6=c7=c8=c9=0
         for char in char_list:
