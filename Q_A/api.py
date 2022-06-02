@@ -26,7 +26,6 @@ def results_api(request):
     if request.method == 'POST':
         from django.db.models import Q
         from django.db import connection
-        model_path = os.path.join(os.getcwd()+r'/model/personalityPredictor.pk1')
         all_answers = answers.objects.all()
 
         f_answers = []
@@ -48,7 +47,7 @@ def results_api(request):
             if x:
                 char_list.append(x.Char_ID_id)
             else: print(answer1)
-
+        model_path = os.path.join(os.getcwd()+r'/model/personalityPredictor.pk1')
         new_record = [0,int(request.data[40]),int(request.data[35]),int(request.data[36]),int(request.data[37]),int(request.data[38]),int(request.data[39]),0]
         print(new_record)
         model = joblib.load(open(model_path,"rb"))
