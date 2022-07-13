@@ -21,6 +21,7 @@ def questionlistapi(request):
     if len(questions1) > i:
         context[(i//5)+2] = questions1[i+5:]
     return Response(data=context)
+
 @api_view(['POST',])
 def results_api(request):
     if request.method == 'POST':
@@ -40,6 +41,7 @@ def results_api(request):
         print(f_answers)
         print(request.data[35])
         print(request.data[40])
+        print(len(request.data))
 
         char_list = []
         for answer1 in f_answers:
@@ -88,8 +90,8 @@ def results_api(request):
             if char == 9:
                 c9+=1
     ####################################################################
-        final_list = [0]
-        if c1 > 10:
+        final_list = []
+        if c1 > 12:
             final_list.append(1)
         if c2 >= 3:
             final_list.append(2)
@@ -103,9 +105,9 @@ def results_api(request):
             final_list.append(6)
         if c7 >= 5:
             final_list.append(7)
-        if c8 >= 5:
+        if c8 >= 6:
             final_list.append(8)
-        if c9 >= 6:
+        if c9 >= 7:
             final_list.append(9)
         print(final_list)
         final_result = max(final_list)
